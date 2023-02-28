@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 
 // To serve static files
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public/css"));
 
 app.get("/", (req, res) =>{
-    res.send("<h1>You Have Navigated To About</h1>");
+    res.sendFile(__dirname + "/public/pages/index.html");
 });
 /*
 Assignment
@@ -17,8 +17,9 @@ app.get("/home", (req, res) =>{
     { step: 2, action: "install express"},
     { step: 3, action: "load express"},
     ];
-    res.send(results);
+    res.send(result);
 });
-app.listen(8000, () =>{
-    console.log("Node Server Started on Port 8000");
+app.listen(3500, () =>{
+    console.log("Node Server Started on Port 3500");
+    console.log(__dirname)
 });
